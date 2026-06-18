@@ -236,6 +236,37 @@
     }
     .contact-link:hover { border-color: var(--accent); color: var(--accent); }
 
+    /* CONTACT FORM */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block; font-size: 0.8rem; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); }
+    @media (max-width: 640px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -293,9 +324,9 @@
   <h2 class="section-title">About Me</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>Hi! I'm <strong>Rishaan Kathpalia</strong>, a 9th grader with a huge passion for sports. Whether I'm watching a game or talking stats with friends, sports are a big part of my life.</p>
-      <p>I'm constantly curious about the world around me and love learning new things — from following my favorite teams to exploring new interests and building skills for the future.</p>
-      <p>This is my personal site where I share a bit about who I am, what I'm working on, and what I care about.</p>
+      <p>Hey, I'm <strong>Rishaan</strong> — a 9th grader who's basically always watching sports. If there's a game on, I'm locked in. If there's no game on, I'm probably talking about one.</p>
+      <p>Outside of sports I'm just figuring things out, picking up new skills, and seeing what I'm into. Right now that includes building this website lol.</p>
+      <p>This is my little corner of the internet — feel free to look around!</p>
       <div class="about-tags">
         <span class="tag">Sports Fan</span>
         <span class="tag">9th Grade</span>
@@ -304,27 +335,36 @@
       </div>
     </div>
     <div>
-      <p style="color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Sports I Follow</p>
+      <p style="color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">what i watch</p>
       <div class="sports-grid">
-        <div class="sport-card">
+        <div class="sport-card" style="border-color: rgba(108,99,255,0.4);">
           <div class="sport-emoji">🏀</div>
-          <div class="sport-name">Basketball</div>
-          <div class="sport-desc">Following every game</div>
+          <div class="sport-name">Basketball <span style="font-size:0.7rem; color: var(--accent); margin-left:0.3rem;">★ my #1</span></div>
+          <div class="sport-desc" style="margin-top:0.4rem;">ride or die Hornets fan 🐝</div>
+          <div class="sport-desc">LaMelo is that dude fr</div>
         </div>
         <div class="sport-card">
           <div class="sport-emoji">⚽</div>
           <div class="sport-name">Soccer</div>
-          <div class="sport-desc">The beautiful game</div>
+          <div class="sport-desc" style="margin-top:0.4rem;">Barca & Spain all day 🔴🔵</div>
+          <div class="sport-desc">Lamine Yamal is crazy talented</div>
         </div>
         <div class="sport-card">
           <div class="sport-emoji">🏈</div>
           <div class="sport-name">Football</div>
-          <div class="sport-desc">NFL season is everything</div>
+          <div class="sport-desc" style="margin-top:0.4rem;">Seahawks nation 🦅</div>
+          <div class="sport-desc">JSN is a problem</div>
         </div>
         <div class="sport-card">
           <div class="sport-emoji">⚾</div>
-          <div class="sport-name">Baseball</div>
-          <div class="sport-desc">Stats and strategy</div>
+          <div class="sport-name">Baseball <span style="font-size:0.7rem; color: var(--muted); margin-left:0.3rem;">lowkey</span></div>
+          <div class="sport-desc" style="margin-top:0.4rem;">Mariners fan, gotta support the city</div>
+          <div class="sport-desc">Julio Rodriguez is a beast</div>
+        </div>
+        <div class="sport-card" style="grid-column: span 2;">
+          <div class="sport-emoji">🏏</div>
+          <div class="sport-name">Cricket</div>
+          <div class="sport-desc" style="margin-top:0.4rem;">Team India 🇮🇳 · Virat Kohli is a legend, no debate</div>
         </div>
       </div>
     </div>
@@ -336,25 +376,25 @@
   <p class="section-label">What I've Built</p>
   <h2 class="section-title">Projects</h2>
   <div class="projects-grid">
+    <div class="project-card" style="border-color: rgba(108,99,255,0.4);">
+      <span class="project-tag">Founding Engineer</span>
+      <h3><a href="https://coacht.xyz" target="_blank" style="color: inherit; text-decoration: none;">CoachT.xyz ↗</a></h3>
+      <p>Probably the thing I'm most proud of rn. I'm a founding engineer at CoachT and it's wild to actually be building something real while I'm still in 9th grade.</p>
+    </div>
     <div class="project-card">
       <span class="project-tag">Web</span>
-      <h3>Personal Website</h3>
-      <p>This site! Built with HTML and CSS and deployed on Vercel. My first step into web development.</p>
+      <h3>This Website</h3>
+      <p>Had no idea how to make a website a few hours ago. Now it's live on Vercel. That's kinda cool.</p>
     </div>
     <div class="project-card">
-      <span class="project-tag">Coming Soon</span>
+      <span class="project-tag">Idea</span>
       <h3>Sports Stats Tracker</h3>
-      <p>A project I'm planning to build — a tracker for following my favorite teams and players.</p>
+      <p>Something I wanna build eventually — tired of jumping between 5 apps to check scores and stats for all the sports I follow.</p>
     </div>
     <div class="project-card">
-      <span class="project-tag">School</span>
-      <h3>9th Grade Journey</h3>
-      <p>Navigating high school, taking on new challenges, and finding what I'm passionate about.</p>
-    </div>
-    <div class="project-card">
-      <span class="project-tag">Future</span>
-      <h3>More to Come</h3>
-      <p>I'm just getting started. Lots of ideas in the works — check back soon!</p>
+      <span class="project-tag">Always</span>
+      <h3>More Stuff Soon</h3>
+      <p>I'm only in 9th grade so I've got time. Got a lot of ideas, just gotta build them.</p>
     </div>
   </div>
 </section>
@@ -366,27 +406,27 @@
   <div class="skills-list">
     <div class="skill-item">
       <h4>HTML & CSS</h4>
-      <p>Building and styling web pages from scratch</p>
+      <p>Just learned this making this site lol. turns out it's actually pretty fun</p>
     </div>
     <div class="skill-item">
-      <h4>Sports Knowledge</h4>
-      <p>Deep stats, history, and analysis across major sports</p>
+      <h4>Sports IQ</h4>
+      <p>Ask me anything about the NBA, NFL, soccer, cricket — I probably know it</p>
     </div>
     <div class="skill-item">
-      <h4>Research</h4>
-      <p>Digging into topics I'm curious about</p>
+      <h4>Going down rabbit holes</h4>
+      <p>I'll look something up and somehow end up 2 hours deep into it</p>
     </div>
     <div class="skill-item">
-      <h4>Problem Solving</h4>
-      <p>Thinking through challenges step by step</p>
+      <h4>Figuring things out</h4>
+      <p>I don't always know how to do something at first but I usually get there</p>
     </div>
     <div class="skill-item">
-      <h4>Communication</h4>
-      <p>Sharing ideas clearly with others</p>
+      <h4>Talking sports</h4>
+      <p>Genuinely could do this all day. debates, predictions, trade talks, anything</p>
     </div>
     <div class="skill-item">
-      <h4>Learning Fast</h4>
-      <p>Picking up new skills and concepts quickly</p>
+      <h4>Picking things up fast</h4>
+      <p>Made this whole website today. didn't know how to yesterday. that counts right</p>
     </div>
   </div>
 </section>
@@ -395,14 +435,38 @@
 <section id="contact">
   <p class="section-label">Say Hello</p>
   <h2 class="section-title">Get in Touch</h2>
-  <p style="color: var(--muted); max-width: 480px;">I'm always open to connecting with new people. Feel free to reach out!</p>
-  <div class="contact-links">
-    <a href="mailto:your@email.com" class="contact-link">
-      <span>✉</span> Email Me
-    </a>
-    <a href="https://github.com/rishaankathpalia" target="_blank" class="contact-link">
-      <span>⌥</span> GitHub
-    </a>
+  <p style="color: var(--muted); max-width: 480px; margin-bottom: 2rem;">I'm always open to connecting with new people. Fill out the form and I'll get back to you!</p>
+
+  <div class="contact-grid">
+    <div class="contact-form-wrap">
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. John Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content: center;">Send Message</button>
+        <p id="form-status" style="margin-top:1rem; font-size:0.875rem; color: var(--accent); display:none;">✓ Message sent! I'll get back to you soon.</p>
+      </form>
+    </div>
+    <div class="contact-side">
+      <p style="color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Or reach me directly</p>
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <a href="mailto:rishaan.kathpalia5@gmail.com" class="contact-link">
+          <span>✉</span> rishaan.kathpalia5@gmail.com
+        </a>
+        <a href="https://github.com/rishaankathpalia" target="_blank" class="contact-link">
+          <span>⌥</span> GitHub
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -410,5 +474,24 @@
   <p>© 2026 Rishaan Kathpalia · Built with HTML & CSS · Deployed on Vercel</p>
 </footer>
 
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      status.style.display = 'block';
+    } else {
+      status.style.color = '#ff6584';
+      status.textContent = '✗ Something went wrong. Try emailing me directly.';
+      status.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>
