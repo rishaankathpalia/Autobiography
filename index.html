@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rishaan Kathpalia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0f;
+      --surface:  #16161a;
+      --border:   #2a2a30;
+      --accent:   #6c63ff;
+      --accent2:  #ff6584;
+      --text:     #e8e8f0;
+      --muted:    #7a7a8c;
+      --display:  'Syne', sans-serif;
+      --body:     'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: rgba(13,13,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 2.5rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      display: inline-flex; gap: 1rem; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #5a52e0; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; }
+    .about-text p strong { color: var(--text); }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .tag {
+      padding: 0.35rem 0.85rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .sports-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .sport-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .sport-card:hover { border-color: var(--accent); }
+    .sport-emoji { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .sport-name { font-weight: 500; font-size: 0.95rem; }
+    .sport-desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .project-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: rgba(108,99,255,0.15);
+      color: var(--accent);
+      border-radius: 4px;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .project-card h3 {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p { font-size: 0.875rem; color: var(--muted); }
+
+    /* SKILLS */
+    .skills-list {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;
+    }
+    .skill-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .skill-item h4 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .skill-item p { font-size: 0.78rem; color: var(--muted); }
+
+    /* CONTACT */
+    .contact-links {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* GLOW DOT */
+    .glow {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
+      top: 10%; right: -100px;
+      pointer-events: none;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .hero { padding: 7rem 1.25rem 3rem; }
+      .about-grid, .projects-grid, .sports-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">RK</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="glow"></div>
+  <p class="hero-eyebrow">Welcome to my corner of the internet</p>
+  <h1>Hey, I'm<br/><span>Rishaan Kathpalia.</span></h1>
+  <p class="hero-sub">9th grader, sports enthusiast, and aspiring builder. Always curious, always learning.</p>
+  <div class="hero-cta">
+    <a href="#about" class="btn btn-primary">About Me</a>
+    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Who I Am</p>
+  <h2 class="section-title">About Me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Hi! I'm <strong>Rishaan Kathpalia</strong>, a 9th grader with a huge passion for sports. Whether I'm watching a game or talking stats with friends, sports are a big part of my life.</p>
+      <p>I'm constantly curious about the world around me and love learning new things — from following my favorite teams to exploring new interests and building skills for the future.</p>
+      <p>This is my personal site where I share a bit about who I am, what I'm working on, and what I care about.</p>
+      <div class="about-tags">
+        <span class="tag">Sports Fan</span>
+        <span class="tag">9th Grade</span>
+        <span class="tag">Curious Learner</span>
+        <span class="tag">Always Growing</span>
+      </div>
+    </div>
+    <div>
+      <p style="color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Sports I Follow</p>
+      <div class="sports-grid">
+        <div class="sport-card">
+          <div class="sport-emoji">🏀</div>
+          <div class="sport-name">Basketball</div>
+          <div class="sport-desc">Following every game</div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-emoji">⚽</div>
+          <div class="sport-name">Soccer</div>
+          <div class="sport-desc">The beautiful game</div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-emoji">🏈</div>
+          <div class="sport-name">Football</div>
+          <div class="sport-desc">NFL season is everything</div>
+        </div>
+        <div class="sport-card">
+          <div class="sport-emoji">⚾</div>
+          <div class="sport-name">Baseball</div>
+          <div class="sport-desc">Stats and strategy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">What I've Built</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <span class="project-tag">Web</span>
+      <h3>Personal Website</h3>
+      <p>This site! Built with HTML and CSS and deployed on Vercel. My first step into web development.</p>
+    </div>
+    <div class="project-card">
+      <span class="project-tag">Coming Soon</span>
+      <h3>Sports Stats Tracker</h3>
+      <p>A project I'm planning to build — a tracker for following my favorite teams and players.</p>
+    </div>
+    <div class="project-card">
+      <span class="project-tag">School</span>
+      <h3>9th Grade Journey</h3>
+      <p>Navigating high school, taking on new challenges, and finding what I'm passionate about.</p>
+    </div>
+    <div class="project-card">
+      <span class="project-tag">Future</span>
+      <h3>More to Come</h3>
+      <p>I'm just getting started. Lots of ideas in the works — check back soon!</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">What I Know</p>
+  <h2 class="section-title">Skills & Interests</h2>
+  <div class="skills-list">
+    <div class="skill-item">
+      <h4>HTML & CSS</h4>
+      <p>Building and styling web pages from scratch</p>
+    </div>
+    <div class="skill-item">
+      <h4>Sports Knowledge</h4>
+      <p>Deep stats, history, and analysis across major sports</p>
+    </div>
+    <div class="skill-item">
+      <h4>Research</h4>
+      <p>Digging into topics I'm curious about</p>
+    </div>
+    <div class="skill-item">
+      <h4>Problem Solving</h4>
+      <p>Thinking through challenges step by step</p>
+    </div>
+    <div class="skill-item">
+      <h4>Communication</h4>
+      <p>Sharing ideas clearly with others</p>
+    </div>
+    <div class="skill-item">
+      <h4>Learning Fast</h4>
+      <p>Picking up new skills and concepts quickly</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Say Hello</p>
+  <h2 class="section-title">Get in Touch</h2>
+  <p style="color: var(--muted); max-width: 480px;">I'm always open to connecting with new people. Feel free to reach out!</p>
+  <div class="contact-links">
+    <a href="mailto:your@email.com" class="contact-link">
+      <span>✉</span> Email Me
+    </a>
+    <a href="https://github.com/rishaankathpalia" target="_blank" class="contact-link">
+      <span>⌥</span> GitHub
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Rishaan Kathpalia · Built with HTML & CSS · Deployed on Vercel</p>
+</footer>
+
+</body>
+</html>
